@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    createUser($conn, $name, $email, $username, $pwd)
+    createUser($conn, $name, $email, $username, $pwd);
 } else {
     header('location: ../signup.php');
     exit();
