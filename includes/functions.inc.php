@@ -51,8 +51,8 @@ function pwdMatch($pwd, $pwdRepeat)
 
 function usernameExists($conn, $username, $email)
 {
-    //no kurienes ņem usersUID?
-    $sql = "SELECT * FROM users WHERE usersUID = ? OR usersEmail = ?;";
+    //no kurienes ņem username?
+    $sql = "SELECT * FROM users WHERE username = ? OR email = ?;";
     $stmt = mysqli_stmt_init($conn);
 
 
@@ -77,11 +77,9 @@ function usernameExists($conn, $username, $email)
     mysqli_stmt_close($stmt);
 }
 
-
-
 function createUser($conn, $name, $email, $username, $pwd)
 {
-    $sql = "INSERT INTO users (usersName, usersEmail, usersUID, usersPWD) VALUES (?, ?, ?, ?);";
+    $sql = "INSERT INTO users (full_name, email, username, password) VALUES (?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
