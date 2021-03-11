@@ -12,7 +12,7 @@ function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat)
     return $result;
 }
 
-function invalidUid($username)
+function invalidUsername($username)
 {
 
     if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
@@ -94,4 +94,41 @@ function createUser($conn, $name, $email, $username, $pwd)
     mysqli_stmt_close($stmt);
     header('location: ../signup.php?error=none');
     exit();
+}
+
+
+function emptyInputLogin($username, $pwd)
+{
+
+    if (empty($username) || empty($pwd)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+
+    return $result;
+}
+
+function loginUser($conn, $username, $pwd)
+{
+    $usernameExists = usernameExists($conn, $username, $username);
+
+    if ($usernameExists === false) {
+        header('location: ../login.php?error=wronglogin ');
+        exit();
+    }
+
+    $pwdHashed = $usernameExists["password"];
+    $checkPwd = password_verify($pwd, $pwdHashed);
+
+    if ($checkPwd === false) {
+        header('location: ../login.php?error=wronglogin ');
+        exit();
+    } else if ($checkPwd === true) {
+        session_start();
+        $_SESSION["userid"] = $usernameExists["user_id"];
+        $_SESSION["username"] = $usernameExists["username"];
+        header('location: ../index.php?');
+        exit();
+    }
 }
