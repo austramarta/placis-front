@@ -6,17 +6,17 @@ if (isset($_POST['submit'])) {
 
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $username1 = $_POST['uid'];
+    $username = $_POST['uid'];
     $pwd = $_POST['pwd'];
     $pwdRepeat = $_POST['pwdrepeat'];
 
 
 
-    if (emptyInputSignup($name, $email, $username1, $pwd, $pwdRepeat) !== false) {
+    if (emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) !== false) {
         header('location: ../signup.php?error=emptyinput');
         exit();
     }
-    if (invalidUid($username1) !== false) {
+    if (invalidUid($username) !== false) {
         header('location: ../signup.php?error=invaliduid');
         exit();
     }
@@ -29,12 +29,12 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    if (usernameExists($conn, $username1, $email) !== false) {
-        header('location: ../signup.php?error=username1taken');
+    if (usernameExists($conn, $username, $email) !== false) {
+        header('location: ../signup.php?error=usernametaken');
         exit();
     }
 
-    createUser($conn, $name, $email, $username1, $pwd);
+    createUser($conn, $name, $email, $username, $pwd);
 } else {
     header('location: ../signup.php');
     exit();
