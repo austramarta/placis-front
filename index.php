@@ -2,6 +2,14 @@
 include_once 'header.php';
 ?>
 
+<section class="login-intro">
+    <?php
+    if (isset($_SESSION["username"])) {
+        echo "<p>Welcome back " . $_SESSION["username"] . ", wonderful to see you returning!</p>";
+    }
+    ?>
+</section>
+
 <body>
 
     <main class="main">
