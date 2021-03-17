@@ -20,7 +20,8 @@ session_start();
             <li><a href="index.php">Home</a></li>
             <?php
             if (isset($_SESSION["username"])) {
-                echo "<li><a href='profile.php'>Profile page</a></li>";
+                echo "<li><a href='profile.php'>Add listing</a></li>";
+                echo "<li><a href='listings.php'>All listings</a></li>";
                 echo "<li><a href='includes/logout.inc.php'>Log Out</a></li>";
             } else {
                 echo "<li><a href='signup.php'>Sign up</a></li>";
