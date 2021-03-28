@@ -38,6 +38,8 @@ function fetchAPIData() {
 
             data.forEach(listingItem => {
                 createListings(listingItem.title, listingItem.body, listingItem.available);
+                // if (listingItem.available) {
+                // }
             })
         })
 }

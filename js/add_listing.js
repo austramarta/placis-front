@@ -1,48 +1,55 @@
 let inputTitle = document.getElementById("title");
 let inputDescription = document.getElementById("description");
-let inputImage = document.getElementById("image");
-let addListingBtn = document.getElementById("add-listing");
-let myListings = document.getElementById("listings");
+let inputCategory = document.getElementById("category");
+// let addListingBtn = document.getElementById("add-listing");
+let myListings = document.getElementById("my-listings");
 
 
 function allEventListeners() {
-    addListingBtn.addEventListener("click", addNewListing);
+    document.querySelector("form").addEventListener("submit", addListingToDB);
+    document.querySelector("form").addEventListener("submit", addNewListing);
 }
 allEventListeners();
 
 
-
-function addNewListing(cleanInputField = false) {
-    let inputTitleValue = inputTitle.value;
-    let inputDescriptionValue = inputTitle.value;
-
+function addNewListing() {
     let newListing = document.createElement("li");
     newListing.className = "single-listing";
 
     let listingTitle = document.createElement("div");
     listingTitle.className = "listing-title";
-    listingTitle.innerText = inputTitleValue
+    listingTitle.innerText = inputTitle.value;
 
     let listingDescription = document.createElement("div");
     listingDescription.className = "listing-description";
-    listingDescription.innerText = inputDescriptionValue;
+    listingDescription.innerText = inputDescription.value;
 
+    let listingAvailable = document.createElement("div");
+    listingAvailable.className = "listing-availability";
+    listingAvailable.innerText = "1";
+
+    let listingCategory = document.createElement("div");
+    listingCategory.className = "listing-availability";
+    listingCategory.innerText = inputCategory.value;
 
     newListing.appendChild(listingTitle);
     newListing.appendChild(listingDescription);
+    newListing.appendChild(listingAvailable);
+    newListing.appendChild(listingCategory);
 
     myListings.appendChild(newListing);
 
+    // return newListing;
 }
-
 
 // API
 function addListingToDB(e) {
     e.preventDefault();
 
     let title = inputTitle.value;
-    let description = inputTitle.value;
+    let description = inputDescription.value;
     let available = "1";
+    let category_id = inputCategory.value;
 
     fetch("http://localhost:8886/placis_api/api/items/create.php", {
         method: "POST",
@@ -50,28 +57,9 @@ function addListingToDB(e) {
             "Accept": "application/json",
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ name: title, description: description, available: available })
+        body: JSON.stringify({ title: title, description: description, available: available, category_id: category_id })
     })
         .then(response => response.json())
-        .then(data => console.log(data, true))
+        .then(data => data)
         .catch(error => { throw (error) })
 }
-
-// function addListingToDB(e) {
-//     e.preventDefault();
-
-//     let title = taskInputField.value;
-//     const completed = "0";
-
-//     fetch("http://localhost:8886/todo_list/api/todo_item/create.php", {
-//         method: "POST",
-//         headers: {
-//             "Accept": "application/json",
-//             "Content-type": "application/json"
-//         },
-//         body: JSON.stringify({ name: title, completed: completed })
-//     })
-//         .then(response => response.json())
-//         .then(data => addNewTask(data, true))
-//         .catch(error => { throw (error) })
-// }
