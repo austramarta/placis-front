@@ -1,25 +1,39 @@
 $olive: #7F8274
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap')
+.flexbox
+    display: flex
+    flex-direction: row
 body
     height: 100vh
     margin: 0
+    display: flex
 
 .nav
-    height: 3rem
-    background: $olive
-    display: flex
-    flex-direction: row
+    height: 100vh
+    width: 12rem
+    border-right: solid 2px $olive
     margin-bottom: 2rem
-
+    font-family: 'Oswald', sans-serif
+    font-weight: 200
+    .brand
+        width: 100%
+        text-align: center
+        padding-top: 1rem
+        font-size: 2rem
+        margin-bottom: 3rem
+        font-weight: 600
     img
         height: 2rem
     ul
-        display: flex
-        flex-direction: row
-        justify-content: right
         li
-            margin-right: 1rem
+            margin-right: 0.5rem
             list-style-type: none
+            margin-bottom: 1rem
+
+            .fa-chevron-right
+                float: right
+                margin-top: 0.4rem
+                color: $olive
 
     a:link
         color: white
@@ -36,8 +50,6 @@ body
 .signup-form
     margin-left: 5rem
     margin-bottom: 2rem
-    // width: 200px
-    // margin: 0 auto
 
 .login-form
     margin-left: 5rem

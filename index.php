@@ -1,32 +1,20 @@
-<?php
-include_once 'header.php';
-?>
-
-<section class="login-intro">
     <?php
-    if (isset($_SESSION["username"])) {
-        echo "<p>Welcome back " . $_SESSION["username"] . ", wonderful to see you returning!</p>";
-    }
+    include_once 'header.php';
     ?>
-</section>
+    <div class="main">
 
-<body>
-
-    <main class="main">
-        <section>
-            <div>
-                <a href="">image</a>
-                <div>available/not available</div>
-                <div>TITLE</div>
-                <div>location</div>
-            </div>
-
+        <section class="login-intro">
+            <?php
+            if (isset($_SESSION["username"])) {
+                echo "<p>Welcome back " . $_SESSION["username"] . ", wonderful to see you returning!</p>";
+            }
+            ?>
         </section>
-    </main>
 
-</body>
+        <body>
 
 
-<?php
-include_once 'footer.php';
-?>
+            <script src="https://kit.fontawesome.com/76ec96adb3.js" crossorigin="anonymous"></script>
+        </body>
+    </div>
+    </div>
