@@ -1,11 +1,12 @@
+$olive: #7F8274
+
 body
     height: 100vh
     margin: 0
 
 .nav
-    height: 4rem
-    background: black
-    color: white
+    height: 3rem
+    background: $olive
     display: flex
     flex-direction: row
     margin-bottom: 2rem
@@ -15,9 +16,18 @@ body
     ul
         display: flex
         flex-direction: row
-        justify-content: space-around
+        justify-content: right
         li
-            margin: 1rem
+            margin-right: 1rem
+            list-style-type: none
+
+    a:link
+        color: white
+        text-decoration: none
+    a:hover
+        color: white
+    a:visited
+        color: black
 
 .main
     padding: 2rem
