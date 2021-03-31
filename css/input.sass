@@ -1,10 +1,12 @@
 $olive: #7F8274
+$grey: #CDCDCD
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Oswald:wght@200;300;400;500;600;700&display=swap')
 
 h1
     font-family: 'Montserrat', sans-serif
-    font-weight: 600
-    font-size: 3rem
+    font-weight: 700
+    font-size: 4rem
+    color: $olive
 
 .flexbox
     display: flex
@@ -49,13 +51,26 @@ body
         color: black
 
 .main
+    width: 100%
     padding: 2rem
     margin-bottom: 2rem
-
-.signup-form
     margin-left: 5rem
-    margin-bottom: 2rem
+    input
+        width: 20rem
+        height: 1.5rem
+        margin-bottom: 1rem
+        border: none
+        border-bottom: solid 1px $olive
+    ::placeholder
+        font-family: 'Montserrat', sans-serif
+        color: $olive
+    button
+        width: 20rem
+        height: 2rem
+        font-family: 'Oswald', sans-serif
+        font-size: 1rem
+        border: none
+        background-color: $grey
 
-.login-form
-    margin-left: 5rem
-    margin-bottom: 2rem
+#my-listings
+    margin-top: 5rem

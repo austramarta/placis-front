@@ -9,16 +9,12 @@ include_once 'header.php';
         </h1>
 
         <form action="" method="POST" enctype="multipart/form-data">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title"><br>
-            <label for="description">Description</label>
-            <input type="text" id="description" name="description"><br>
-            <label for="category">Category id</label>
-            <input type="text" id="category" name="category"><br>
-            <label for="file">image</label>
-            <input type="file" id="file" name="file"><br><br>
+            <input type="text" id="title" name="title" placeholder="Title"><br>
+            <input type="text" id="description" name="description" placeholder="Description"><br>
+            <input type="text" id="category" name="category" placeholder="Category"><br>
+            <input type="file" id="file" name="file" placeholder="Image upload"><br><br>
 
-            <input id="add-listing" type="submit" value="submit">
+            <button id="add-listing" type="submit" value="submit">Add</button>
         </form>
         <div>
             <ul id="my-listings">
